@@ -12,7 +12,8 @@ export default class App extends Component {
     studentAge: "",
     studentID: "",
     showPersons: false,
-    details:""
+    details:"",
+    showView:false,
     
   };
   deleteStudentData = (index) => {
@@ -51,7 +52,10 @@ export default class App extends Component {
     this.setState({ persons: copyPersons });
   };
   viewStudentDetailHandler = (detail) => {
+    const toggle = this.state.showView;
+    this.setState({ showView: !toggle });
     this.setState({details:detail});
+    
   };
   render() {
     let showAdd = null;
@@ -81,6 +85,16 @@ export default class App extends Component {
           <button onClick={this.addStudentDetailsHandler}>Submit</button>
         </div>
       );
+     
+      }
+      let view = null;
+      if (this.state.showView)
+      {
+        view =<div>
+        <div>First Name:{this.state.details.firstname}</div>
+        <div>Last Name:{this.state.details.lastname}</div>
+        <div>Age:{this.state.details.age}</div>
+            </div>
     }
     return (
       <div className="App">
@@ -94,9 +108,8 @@ export default class App extends Component {
         ></StudentTable>
         <button onClick={this.showPersonsHandler}>Add</button>
         {showAdd}
-        <div>
-    <div>First Name:{this.state.details.firstname}</div>
-        </div>
+        {view}
+        
       </div>
     );
   }
