@@ -106,7 +106,8 @@ export default class App extends Component {
     return (
       <div className="App">
         <header>
-          <h1>Student App</h1>
+        <img className="studentLogo" src={require("./student-logo.jpg")} />
+        <h1>Student App</h1>
         </header>
         <StudentTable
           studentdata={this.state.persons}
