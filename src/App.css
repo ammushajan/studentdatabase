@@ -1,38 +1,59 @@
 .App {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.addStudentData {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+  border: 1px solid black;
+  width: 80%;
+  text-align: center;
+  margin: 0 auto;
+  padding: 30px;
+}
+button {
+  padding: 5px;
+  cursor: pointer;
+  background: #668ad8;
+  color: #fff;
+  border-bottom: solid 4px #627295;
+  border-radius: 3px;
+  height: 50px;
+  width: 55px;
+}
+.studentTable {
+  margin: 0 auto;
+  padding: 20px;
+}
+table {
+  border-collapse: collapse;
 }
 
-.App-link {
-  color: #61dafb;
+table,
+th,
+td {
+  border-bottom: 1px solid #ddd;
+  padding: 15px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+th {
+  height: 50px;
+}
+tr:hover {
+  background-color: #f5f5f5;
+}
+.addButton
+{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.viewCard
+{
+  background-color: #668ad8;
+  padding: 20px;
+  color: #ddd;
+  width: 80%;
+  text-align: center;
+  box-shadow: 5px 10px #627295;
+  height: 100px;
+  display: inline-block;
+  margin-top: 20px;
 }

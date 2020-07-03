@@ -12,9 +12,8 @@ export default class App extends Component {
     studentAge: "",
     studentID: "",
     showPersons: false,
-    details:"",
-    showView:false,
-    
+    details: "",
+    showView: false,
   };
   deleteStudentData = (index) => {
     const copy = this.state.persons;
@@ -42,6 +41,14 @@ export default class App extends Component {
     const copyPersons = [...this.state.persons];
     console.log(copyPersons);
     let studentdetail = {};
+    // if (
+    //   this.state.studentFirstName &&
+    //   this.state.studentLastName &&
+    //   this.state.studentAge &&
+    //   this.state.studentID === " "
+    // ) {
+    //   return;
+    // }
     studentdetail = {
       id: this.state.studentID,
       firstname: this.state.studentFirstName,
@@ -54,14 +61,13 @@ export default class App extends Component {
   viewStudentDetailHandler = (detail) => {
     const toggle = this.state.showView;
     this.setState({ showView: !toggle });
-    this.setState({details:detail});
-    
+    this.setState({ details: detail });
   };
   render() {
     let showAdd = null;
     if (this.state.showPersons) {
       showAdd = (
-        <div>
+        <div className="addStudentData">
           <input
             type="text"
             placeholder="Enter your firstname"
@@ -73,7 +79,7 @@ export default class App extends Component {
             onChange={this.setLastName}
           ></input>
           <input
-            type="text"
+            type="number"
             placeholder="Enter your age"
             onChange={this.setAge}
           ></input>
@@ -85,31 +91,31 @@ export default class App extends Component {
           <button onClick={this.addStudentDetailsHandler}>Submit</button>
         </div>
       );
-     
-      }
-      let view = null;
-      if (this.state.showView)
-      {
-        view =<div>
-        <div>First Name:{this.state.details.firstname}</div>
-        <div>Last Name:{this.state.details.lastname}</div>
-        <div>Age:{this.state.details.age}</div>
-            </div>
+    }
+    let view = null;
+    if (this.state.showView) {
+      view = (
+        <div className="viewCard">
+          <div>First Name:{this.state.details.firstname}</div>
+          <div>Last Name:{this.state.details.lastname}</div>
+          <div>Age:{this.state.details.age}</div>
+          <div>ID:{this.state.details.id}</div>
+        </div>
+      );
     }
     return (
       <div className="App">
         <header>
-          <h1>Student Database</h1>
+          <h1>Student App</h1>
         </header>
         <StudentTable
           studentdata={this.state.persons}
           delete={this.deleteStudentData}
           view={this.viewStudentDetailHandler}
         ></StudentTable>
-        <button onClick={this.showPersonsHandler}>Add</button>
+        <button className="addButton"onClick={this.showPersonsHandler}>Add</button>
         {showAdd}
         {view}
-        
       </div>
     );
   }
